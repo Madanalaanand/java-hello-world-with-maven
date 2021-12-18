@@ -11,4 +11,13 @@ node('jdk11-mvn3.8.4') {
   stage('build') {
        junit '**/TEST-*.xml'
   }
+  currentBuild.result = 'SUCCESS'
+   catch (err) {
+        currentBuild.result = 'FAILURE'
+    }
+   finally {
+        mail to: 'qtdevops@gmail.com',
+        subject: "Status of the pipeline: ${currentBuild.fullDisplayName}",
+        body: "${env.BUILD_URL} has result ${currentBuild.result}" 
+    }
 }
