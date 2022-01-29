@@ -5,7 +5,5 @@ node('jdk11-mvn3.8.4') {
     stage('build') {
        sh '/usr/local/apache-maven-3.8.4/bin/mvn clean package'
    }
-   stage('build') {
-      junit 'targer/surefire/*.xml'
-   }
+     archiveArtifacts artifacts: 'target/surefire/*.xml', followSymlinks: false
 }
