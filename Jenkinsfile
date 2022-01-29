@@ -4,8 +4,8 @@ node('jdk11-mvn3.8.4') {
   }
   stage('build'){
        sh'''
-        "echo PATH=${PATH}"
-        "echo M2_HOME=${M2_HOME}"
+        echo "PATH=${PATH}"
+        echo "M2_HOME=${M2_HOME}"
 
         '''
   }
