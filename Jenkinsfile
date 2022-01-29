@@ -8,8 +8,7 @@ node('jdk11-mvn3.8.4') {
         echo "M2_HOME=${M2_HOME}"
 
         '''
-  }
-  stage('build') {
-     sh 'mvn clean package'
+    
+     sh '/usr/local/apache-maven3.8.4/bin/mvn clean package'
 }
 }
