@@ -9,7 +9,7 @@ stage('build') {
 stage('archive') {
      archiveArtifacts artifacts: 'target/surefire-reports/*.xml', followSymlinks: false
 }
-stage('archive') {
+stage('publish test reports') {
     archiveArtifacts artifacts: '**/TEST-*.xml', followSymlinks: false
 }     
 
