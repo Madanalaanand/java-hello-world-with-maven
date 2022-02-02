@@ -12,7 +12,7 @@ stage('archive') {
 stage('archive') {
     archiveArtifacts artifacts: '**/TEST-*.xml', followSymlinks: false
 }     
-}
+
               currentbuild.result='SUCCESS'
 catch(err){
               currentbuild.result='FAILURE'
