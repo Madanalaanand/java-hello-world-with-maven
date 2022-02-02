@@ -1,4 +1,5 @@
-node('jdk11-mvn3.8.4') {
+try{
+  node('jdk11-mvn3.8.4') {
   stage('git') {
     git 'https://github.com/Madanalaanand/java-hello-world-with-maven.git'
 }
@@ -11,4 +12,14 @@ stage('archive') {
 stage('archive') {
     archiveArtifacts artifacts: '**/TEST-*.xml', followSymlinks: false
 }     
+}
+              currentbuild.result='SUCCESS'
+catch(err){
+              currentbuild.result='FAILURE'
+} 
+  finally{
+     mail to: 'madanalaanand7@gmail.com'
+     subject: "status of the pipeline: ${currentBuild.fulldisplyname}",
+     body: "${env.BUILD_URL} has result ${currentbuild.result}"
+  }
 }
