@@ -20,7 +20,7 @@ catch (err){
 } 
   finally{
      mail to: 'madanalaanand7@gmail.com'
-     subject: "Status of the pipeline: ${currentBuild.fullDisplayName}",
+     subject: "Status of the pipeline: ${currentbuild.result}",
      body: "${env.BUILD_URL} has result ${currentbuild.result}"
   }
 }
