@@ -14,6 +14,7 @@ stage('archive') {
 }     
 
               currentbuild.result='SUCCESS'
+}
 catch (err){
               currentbuild.result='FAILURE'
 } 
