@@ -19,8 +19,8 @@ catch (err){
               currentbuild.result='FAILURE'
 } 
   finally{
-     mail to: 'madanalaanand7@gmail.com'
-     subject: "Status of the pipeline: ${currentbuild.result}",
+     mail to: 'madanalaanand7@gmail.com',
+     subject: "status of the pipeline: ${currentBuild.fullDisplayName}",
      body: "${env.BUILD_URL} has result ${currentbuild.result}"
   }
 }
