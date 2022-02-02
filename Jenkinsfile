@@ -12,15 +12,14 @@ stage('archive') {
 stage('publish test reports') {
     junit '**/TEST-*.xml'
 }     
-
-              currentbuild.result='SUCCESS'
+   currentBuild.result='SUCCESS'
 }
 catch (err){
-              currentbuild.result='FAILURE'
+              currentBuild.result='FAILURE'
 } 
   finally{
      mail to: 'madanalaanand7@gmail.com',
      subject: "status of the pipeline: ${currentBuild.fullDisplayName}",
-     body: "${env.BUILD_URL} has result ${currentbuild.result}"
+     body: "${env.BUILD_URL} has result ${currentBuild.result}"
   }
 }
