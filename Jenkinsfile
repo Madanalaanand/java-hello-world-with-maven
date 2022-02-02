@@ -7,7 +7,7 @@ stage('build') {
    sh '/usr/local/apache-maven-3.8.4/bin/mvn clean package'
 }
 stage('archive') {
-     archiveArtifacts artifacts: 'target/surefire-reports/*.xml', followSymlinks: false
+     archiveArtifacts artifacts: 'target/*.jar', followSymlinks: false
 }
 stage('publish test reports') {
     archiveArtifacts artifacts: '**/TEST-*.xml', followSymlinks: false
