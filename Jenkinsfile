@@ -15,7 +15,7 @@ stage('publish test reports') {
    currentBuild.result='SUCCESS'
 }
 catch (err){
-              currentBuild.result='FAILURE'
+                  currentBuild.result='FAILURE'
 } 
   finally{
      mail to: 'madanalaanand7@gmail.com',
