@@ -1,5 +1,5 @@
 pipeline{
-    agent{ label 'jdk11-mvn3.8.4'}
+    agent{ label 'jdk11-mvn3.8.5'}
     stages{
         stage('scm'){
             steps{
@@ -8,7 +8,7 @@ pipeline{
         }
         stage('build'){
             steps{
-                sh: '/usr/local/apache-maven-3.8.5/mvn clean package'
+                sh '/usr/local/apache-maven-3.8.5/mvn clean package'
             }
         }
     }
